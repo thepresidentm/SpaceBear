@@ -5,6 +5,7 @@ import { dataMicrosatTLE } from "./fromApi.js";
 
 import { getSatelliteInfo } from "tle.js/dist/tlejs.cjs";
 
+let locationOriginalSatellites = []
 
 const dataTLE = {
     0: dataCosmosTLE,
@@ -39,9 +40,9 @@ for (let i = 0; i < dataTLE[0].length - 916; i++) {
     
 }
 
-console.log(dataTLE[0].length);
-console.log(dataCosmosJSON);
-console.log(dataCosmosJSON.length);
+// console.log(dataTLE[0].length);
+// console.log(dataCosmosJSON);
+// console.log(dataCosmosJSON.length);
 
 
 let dataTheOtherOnesJSON = [];
@@ -64,4 +65,5 @@ for (let i = 1; i < 3; i++) {
 // console.log(dataTheOtherOnesJSON.length);
 
 
-export const dataJSON = dataCosmosJSON.concat(dataTheOtherOnesJSON);
+export const dataset = dataCosmosJSON.concat(dataTheOtherOnesJSON);
+console.log(dataset);

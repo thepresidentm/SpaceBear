@@ -36,14 +36,3 @@ export const dataCosmosTLE = await GetData(cosmos);
 export const dataIridiumTLE = await GetData(iridium);
 export const dataFenyunTLE = await GetData(fenyun);
 export const dataMicrosatTLE = await GetData(microsat);
-
-
-console.log(dataCosmosTLE.length);
-console.log(dataCosmosTLE[133]);
-
-console.log(dataCosmosTLE[134]);
-
-console.log(dataCosmosTLE[132]);
-console.log(dataIridiumTLE.length);
-console.log(dataFenyunTLE.length);
-console.log(dataMicrosatTLE.length);
