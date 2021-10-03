@@ -1,0 +1,16 @@
+:root{
+    --space: #130020ff;
+    --space-2: #257c9fff;
+}
+
+html{
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(var(--space-2), var(--space));
+}
+
+body, canvas{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
