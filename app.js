@@ -1,31 +1,54 @@
-//import { GetData } from "./fromApi.js";
+import { dataCosmosTLE } from "./fromApi.js";
+import { dataFenyunTLE } from "./fromApi.js";
+import { dataIridiumTLE } from "./fromApi.js";
+import { dataMicrosatTLE } from "./fromApi.js";
 
-const { getSatelliteInfo } = require("tle.js/dist/tlejs.cjs");
+import { getSatelliteInfo } from "tle.js/dist/tlejs.cjs";
 
-const satellites = {
-    1: "COSMOS-2251",
-    2: "IRIDIUM-33",
-    3: "FENGYUN-1C",
-    4: "MICROSAT-R"
+
+const dataTLE = {
+    0: dataCosmosTLE,
+    1: dataFenyunTLE,
+    2: dataIridiumTLE,
+    3: dataMicrosatTLE
 };
 
-const tle = `COSMOS 2251 DEB         
-1 33757U 93036E   21275.09768344  .00000015  00000-0  15253-4 0  9990
-2 33757  74.0356 240.0933 0016156 269.2517 170.7959 14.32058555660530`;
+const satellites = {
+    0: "COSMOS-2251",
+    1: "IRIDIUM-33",
+    2: "FENGYUN-1C",
+    3: "MICROSAT-R"
+};
 
 const observerLat = 0;
 const observerLng = 0;
 
-const derbisInfo = getSatelliteInfo(tle, null, observerLat, observerLng, 0);
-derbisInfo.satellite = satellites[1];
-delete derbisInfo.elevation;
-delete derbisInfo.azimuth;
-delete derbisInfo.range;
-delete derbisInfo.velocity;
+// const tle = dataTLE[0][1];
 
-console.log(derbisInfo);
+let dataCosmosJSON = [];
 
-/*
-const cosmos = 'https://celestrak.com/NORAD/elements/cosmos-2251-debris.txt';
-GetData(cosmos).then(console.log(cosmos[0]));
-*/
+for (let i = 0; i < dataTLE[0].length - 916; i++) {
+
+    dataCosmosJSON [i] = getSatelliteInfo(dataTLE[0][i], null, observerLat, observerLng, 0);
+    dataCosmosJSON[i].satellite = satellites[0];
+    delete dataCosmosJSON[i].elevation;
+    delete dataCosmosJSON[i].azimuth;
+    delete dataCosmosJSON[i].range;
+    delete dataCosmosJSON[i].velocity;
+    
+}
+    
+
+console.log(dataTLE[0].length);
+console.log(dataCosmosJSON);
+console.log(dataCosmosJSON.length);
+
+
+// const derbisInfo = getSatelliteInfo(tle, null, observerLat, observerLng, 0);
+// derbisInfo.satellite = satellites[1];
+// delete derbisInfo.elevation;
+// delete derbisInfo.azimuth;
+// delete derbisInfo.range;
+// delete derbisInfo.velocity;
+
+// console.log(derbisInfo);
