@@ -1,5 +1,10 @@
-const cosmos = 'https://celestrak.com/NORAD/elements/cosmos-2251-debris.txt';
+import { request } from 'undici'
 
-fetch(cosmos)
-    .then((resp) => resp.text())
-    .catch((e) => console.log(e));
+const cosmos = 'https://celestrak.com/NORAD/elements/2019-006.txt';
+const {
+  body
+} = await request(cosmos);
+
+const debris = await body.text();
+
+console.log(debris);
