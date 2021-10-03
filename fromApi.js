@@ -1,6 +1,6 @@
 import { request } from 'undici'
 
-const cosmos = 'https://celestrak.com/NORAD/elements/2019-006.txt';
+const cosmos = 'https://celestrak.com/NORAD/elements/cosmos-2251-debris.txt';
 const {
   body
 } = await request(cosmos);
