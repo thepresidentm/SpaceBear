@@ -8,8 +8,8 @@ import { getSatelliteInfo } from "tle.js/dist/tlejs.cjs";
 
 const dataTLE = {
     0: dataCosmosTLE,
-    1: dataFenyunTLE,
-    2: dataIridiumTLE,
+    1: dataIridiumTLE,
+    2: dataFenyunTLE,
     3: dataMicrosatTLE
 };
 
@@ -23,7 +23,8 @@ const satellites = {
 const observerLat = 0;
 const observerLng = 0;
 
-// const tle = dataTLE[0][1];
+
+// Taba bugeado el elemento 133 del dataset de cosmos
 
 let dataCosmosJSON = [];
 
@@ -37,18 +38,30 @@ for (let i = 0; i < dataTLE[0].length - 916; i++) {
     delete dataCosmosJSON[i].velocity;
     
 }
-    
 
 console.log(dataTLE[0].length);
 console.log(dataCosmosJSON);
 console.log(dataCosmosJSON.length);
 
 
-// const derbisInfo = getSatelliteInfo(tle, null, observerLat, observerLng, 0);
-// derbisInfo.satellite = satellites[1];
-// delete derbisInfo.elevation;
-// delete derbisInfo.azimuth;
-// delete derbisInfo.range;
-// delete derbisInfo.velocity;
+let dataTheOtherOnesJSON = [];
 
-// console.log(derbisInfo);
+for (let i = 1; i < 3; i++) {
+    
+    for (let j = 0; j < dataTLE[i].length; j++) {
+
+        dataTheOtherOnesJSON [j] = getSatelliteInfo(dataTLE[i][j], null, observerLat, observerLng, 0);
+        dataTheOtherOnesJSON[j].satellite = satellites[i];
+        delete dataTheOtherOnesJSON[j].elevation;
+        delete dataTheOtherOnesJSON[j].azimuth;
+        delete dataTheOtherOnesJSON[j].range;
+        delete dataTheOtherOnesJSON[j].velocity;
+        
+    }
+}
+
+// console.log(dataTheOtherOnesJSON);
+// console.log(dataTheOtherOnesJSON.length);
+
+
+export const dataJSON = dataCosmosJSON.concat(dataTheOtherOnesJSON);
