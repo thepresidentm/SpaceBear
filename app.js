@@ -1,3 +1,4 @@
+//import { GetData } from "./fromApi.js";
 
 const { getSatelliteInfo } = require("tle.js/dist/tlejs.cjs");
 
@@ -23,3 +24,8 @@ delete derbisInfo.range;
 delete derbisInfo.velocity;
 
 console.log(derbisInfo);
+
+/*
+const cosmos = 'https://celestrak.com/NORAD/elements/cosmos-2251-debris.txt';
+GetData(cosmos).then(console.log(cosmos[0]));
+*/
