@@ -80,3 +80,7 @@ footer div img{
 a:visited, a:link{
     color: var(--fuente);
 }
+
+div canvas{
+    width: 100%;
+}
