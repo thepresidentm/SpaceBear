@@ -1,21 +1,18 @@
 {
-  "name": "pruebas-worldwind",
+  "name": "SpaceBear",
   "version": "1.0.0",
-  "main": "dataset.js",
+  "description": "",
   "type": "module",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thepresidentm/pruebas-worldwind.git"
-  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/thepresidentm/pruebas-worldwind/issues"
-  },
-  "homepage": "https://github.com/thepresidentm/pruebas-worldwind#readme",
-  "keywords": [],
-  "description": ""
+  "dependencies": {
+    "express": "^4.17.1",
+    "tle.js": "^4.3.0",
+    "undici": "^4.7.0"
+  }
 }
