@@ -1,14 +1,14 @@
-import { dataset } from 'https://thepresidentm.github.io/pruebas-worldwind/dataset.js';
-
-let planeta, arrayLongitud, capaObjetos, atributosObjetos,
+let dataset, planeta, arrayLongitud, capaObjetos, atributosObjetos,
 objetos, posiciones, i;
 
-window.onload = main();
+init();
 
-function main(){
-    init();
-    displayDataset();
-}
+fetch('https://datajson.herokuapp.com/')
+  .then(response => response.json())
+  .then(data => {
+      dataset = data;
+      displayDataset();
+  });
 
 function init(){
     // Crear el objeto planeta
